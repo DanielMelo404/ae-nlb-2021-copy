@@ -73,7 +73,8 @@ class Runner:
         self.rolling_metrics = {} # For PBT
 
         if checkpoint_path is not None:
-            ckpt_dict = torch.load(checkpoint_path)
+            tmp_device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+            ckpt_dict = torch.load(checkpoint_path, map_location=tmp_device)
             config = ckpt_dict["config"]
         self.config = config
         if not osp.exists(config.LOG_DIR):
@@ -102,7 +103,7 @@ class Runner:
 
         if checkpoint_path is not None:
             self.load_device()
-            self.load_checkpoint(checkpoint_path)
+            self.load_checkpoint(checkpoint_path, map_location=self.device)
 
     def setup_model(self, device):
         r""" Creates model and assigns to device """

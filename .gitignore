@@ -143,3 +143,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# NLB data
+nlb_data
+
+# Data cache (symlink) directories that should not be committed
+data-cache

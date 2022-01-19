@@ -1,0 +1,17 @@
+ray
+torch
+tensorboard
+yacs
+pytorch_transformers
+ray[tune]
+matplotlib
+dandi
+pydantic
+
+# required dependencies for analyzing tune results
+gym
+dm-tree
+scikit-image
+lz4
+seaborn
+
