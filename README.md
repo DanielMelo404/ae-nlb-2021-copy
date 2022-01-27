@@ -3,12 +3,16 @@ This repo is dedicated to reproducing [AE Studio](https://ae.studio/brain-comput
 
 This is a fork of [neural-data-transformers](https://github.com/snel-repo/neural-data-transformers), which was the basis for the winning submissions.
 
-**Thanks to the organizers** for putting this competition together, we had a blast competing!
-
 ### AE Contributors
 * Darin Erat Sleiter [@dsleiter](https://github.com/dsleiter)
 * Joshua Schoenfield [@joshuaAtAE](https://github.com/joshuaAtAE)
 * Mike Vaiana [@vaiana](https://github.com/vaiana)
+
+### Acknowledgements
+
+**Thanks to the organizers** for putting this competition together, we had a blast competing!
+
+Many thanks to Sumner L Norman ([@sumner15](https://github.com/sumner15)) for his guidance and advice, especially in the areas of neuroscience and neural decoding.
 
 ## Model Description
 
@@ -28,6 +32,8 @@ The number of models ensembled for each dataset were:
 * mc_maze_medium: 8
 * mc_maze_small: 7
 ```
+
+The ensemble size was chosen by first ordering individual models by validation co-bps and then ensembling the top N models for N=1...M where M was some reasonably large number (30-50).  The final choice of ensemble size was the N that maximized validation co-bps.  Due to a bug only discovered after submission, the N used for the actual submission was slightly lower than the optimal N for a few of the datasets.  However, we also observed that the co-bps was not overly sensitive to the exact value of N, so this likely did not have a large effect.
 
 We have made all our trained NDT model checkpoints from bayesopt available for download at: https://zenodo.org/record/5875246#.YefGXYRByEI (which can also be downloaded via the `download_checkpoints.py` script).
 
@@ -199,8 +205,3 @@ sudo apt-get install --yes --no-install-recommends nvidia-470 libcuda1-470 nvidi
 sudo apt-get install --yes --no-install-recommends lambda-stack-cuda
 ```
 **Note** If you are running on EC2, you may need to stop and restart your instance at this point, otherwise you may need to reset your machine.
-
-
-
-
-
