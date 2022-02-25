@@ -3,6 +3,8 @@ This repo is dedicated to reproducing [AE Studio](https://ae.studio/brain-comput
 
 This is a fork of [neural-data-transformers](https://github.com/snel-repo/neural-data-transformers), which was the basis for the winning submissions.
 
+For details on the approach we took to the challenge, please see [Our Approach](approach.md).
+
 ### AE Contributors
 * Darin Erat Sleiter [@dsleiter](https://github.com/dsleiter)
 * Joshua Schoenfield [@joshuaAtAE](https://github.com/joshuaAtAE)
@@ -23,15 +25,16 @@ We experimented with many different types of models, but our winning submission 
 To build the ensemble, we ranked the candidate model snapshots produced via bayesopt by the validation co-bps, and then ensembled N top models by taking the mean of predicted rates.
 
 The number of models ensembled for each dataset were:
-```
-* mc_maze: 8
-* mc_rtt: 13
-* area2_bump: 21
-* dmfc_rsg: 13
-* mc_maze_large: 8
-* mc_maze_medium: 8
-* mc_maze_small: 7
-```
+
+| Dataset        |  Ensemble Size |
+| -------------- | -------------- |
+| mc_maze        |              8 |
+| mc_rtt         |             13 |
+| area2_bump     |             21 |
+| dmfc_rsg       |             13 |
+| mc_maze_large  |              8 |
+| mc_maze_medium |              8 |
+| mc_maze_small  |              7 |
 
 The ensemble size was chosen by first ordering individual models by validation co-bps and then ensembling the top N models for N=1...M where M was some reasonably large number (30-50).  The final choice of ensemble size was the N that maximized validation co-bps.  Due to a bug only discovered after submission, the N used for the actual submission was slightly lower than the optimal N for a few of the datasets.  However, we also observed that the co-bps was not overly sensitive to the exact value of N, so this likely did not have a large effect.
 
@@ -40,15 +43,16 @@ We have made all our trained NDT model checkpoints from bayesopt available for d
 This archive also includes details on the commands used to train all of the models, as well as csvs containing the hyperparameters and validation metric scores for each of the model checkpoints. See the README in the archive for more details.
 
 For training, we used machines with 4 GPUs. The training time for the full Bayesian hyperparameter optimization of each dataset was:
-```
-* mc_maze: 43.6 hrs (120 models)
-* mc_rtt: 14.6 hrs (120 models)
-* area2_bump: 5.9 hrs (100 models)
-* dmfc_rsg: 47.8 hrs (130 models)
-* mc_maze_small: 2.7 hrs (120 models)
-* mc_maze_medium: 6.1 hrs (120 models)
-* mc_maze_large: 13.2 hrs (120 models)
-```
+
+| Dataset        |  Total Training Time | # of Models Trained |
+| -------------- | -------------------- | ------------------- |
+| mc_maze        |             43.6 hrs |                 120 |
+| mc_rtt         |             14.6 hrs |                 120 |
+| area2_bump     |              5.9 hrs |                 100 |
+| dmfc_rsg       |             47.8 hrs |                 130 |
+| mc_maze_large  |              2.7 hrs |                 120 |
+| mc_maze_medium |              6.1 hrs |                 120 |
+| mc_maze_small  |             13.2 hrs |                 120 |
 
 The time to compute ensembles was negligible.
 
@@ -205,3 +209,8 @@ sudo apt-get install --yes --no-install-recommends nvidia-470 libcuda1-470 nvidi
 sudo apt-get install --yes --no-install-recommends lambda-stack-cuda
 ```
 **Note** If you are running on EC2, you may need to stop and restart your instance at this point, otherwise you may need to reset your machine.
+
+
+
+
+
