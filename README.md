@@ -1,7 +1,7 @@
 # AE Studio - NLB 2021
 This repo is dedicated to reproducing [AE Studio](https://ae.studio/brain-computer-interface)'s winning submissions to the [Neural Latents Benchmark Challenge 2021](https://neurallatents.github.io/).  Note that code included here is intended to be the minimum needed to reproduce those submissions results.  We will be releasing a write-up of our approach and process, including other experimental paths we tried that are not contained in this code base and did not contribute directly to our winning submissions.
 
-This is a fork of [neural-data-transformers](https://github.com/snel-repo/neural-data-transformers), which was the basis for the winning submissions.
+This is a fork of [neural-data-transformers](https://github.com/snel-repo/neural-data-transformers)[^ndt], which was the basis for the winning submissions.
 
 For details on the approach we took to the challenge, please see [Our Approach](approach.md).
 
@@ -15,6 +15,15 @@ For details on the approach we took to the challenge, please see [Our Approach](
 **Thanks to the organizers** for putting this competition together, we had a blast competing!
 
 Many thanks to Sumner L Norman ([@sumner15](https://github.com/sumner15)) for his guidance and advice, especially in the areas of neuroscience and neural decoding.
+
+Huge thanks to Joel Ye and Chethan Pandarinath for their great paper:
+>*Representation learning for neural population activity with Neural Data Transformers*[^ndt] 
+
+and for releasing an [open source implementation](https://github.com/snel-repo/neural-data-transformers) on which our work is based.
+
+[^ndt]: Representation learning for neural population activity with Neural Data Transformers 
+    Joel Ye, Chethan Pandarinath bioRxiv 2021.01.16.426955; doi: https://doi.org/10.1101/2021.01.16.426955
+
 
 ## Model Description
 
