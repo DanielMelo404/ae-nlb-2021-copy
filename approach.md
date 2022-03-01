@@ -1,5 +1,6 @@
 # Our Approach
 
+
 ## Introduction
 Advances in brain recordings present an opportunity to improve our understanding of brain function in unprecedented detail. The science of interpreting brain signals has myriad applications from the biology of neurological disease to interfacing brain and machine. Latent variable models (LVMs) are a promising tool for interpreting increasingly complex neural data. The Neural Latents Benchmark (NLB) challenge was created to coordinate efforts toward more advanced LVMs. The first NLB challenge occurred from September 2021 until January 7th, 2022. The challenge was to predict neuron activity spanning four tasks and brain areas across seven datasets. Our team from AE Studio was pleased to be announced as the winners of the first NLB challenge. Here we describe the approach we took and how we arrived at our solution.
 
