@@ -5,7 +5,7 @@ Advances in brain recordings present an opportunity to improve our understanding
 
 We believe that our winning solution is the result of a system of behaviors and best practices for software engineering and data science. By employing these behaviors and practices to adapt existing state-of-the-art LVMs, we were successful in submitting the top performing model across all datasets in the NLB challenge. We believe these behaviors are important to enumerate because we have found they accelerate the pace of development and produce robust and reusable code. We hope that neuroscience researchers will adopt these best practices and that the community at large will benefit from research which is sharable and easily reproducible.
 
-We thank Joel Ye and Chethan Pandarinath for their work on the Neural Data Transformers[^ndt] (one of the state-of-the-art LVMs). Their open source, easy to use code was the base for the work presented here.
+We thank Joel Ye and Chethan Pandarinath for their work on the Neural Data Transformers[^ndt] (one of the state-of-the-art LVMs). Their open-source, easy-to-use code was the foundation for the work presented here.
 
 [^ndt]: https://doi.org/10.51628/001c.27358
 
