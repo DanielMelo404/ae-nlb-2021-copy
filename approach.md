@@ -5,13 +5,16 @@ Advances in brain recordings present an opportunity to improve our understanding
 
 We believe that our winning solution is the result of a system of behaviors and best practices for software engineering and data science. By employing these behaviors and practices to adapt existing state-of-the-art LVMs, we were successful in submitting the top performing model across all datasets in the NLB challenge. We believe these behaviors are important to enumerate because we have found they accelerate the pace of development and produce robust and reusable code. We hope that neuroscience researchers will adopt these best practices and that the community at large will benefit from research which is sharable and easily reproducible.
 
+We thank Joel Ye and Chethan Pandarinath for their work on the Neural Data Transformers[^ndt] (one of the state-of-the-art LVMs). Their open source, easy to use code was the base for the work presented here.
+
+[^ndt]: https://doi.org/10.51628/001c.27358
+
 ## Behaviors and Practices
 
 Agile software development argues that a project presents three degrees of freedom: scope, time, and resources. Fixing all three simultaneously over-constrains the problem and there is no solution: the project will either be late, exceed its budget, or fail to deliver the promised scope. Therefore, a successful project must present at least one degree of freedom. For this project, time and resources were fixed, thus requiring a flexible scope.
 
-We concluded that we would not have time to ideate, implement, and experiment with a novel machine learning architecture. We needed a plan that would achieve competitive results as quickly as possible while leaving room for iterative improvement. We decided instead to adapt the currently available state-of-the-art models for neural population dynamics (i.e. Neural Data Transformers[^ndt] and AutoLFADS[^autolfads]) and make incremental improvements within the NLB challenge’s timeframe. By enumerating a backlog[^backlog] of small, incremental improvements and implementing them sequentially, we ensured that potential submissions were available at each step of the way (as opposed to designing an optimal implementation and running out of time before all finalized components could be assembled).
+We concluded that we would not have time to ideate, implement, and experiment with a novel machine learning architecture. We needed a plan that would achieve competitive results as quickly as possible while leaving room for iterative improvement. We decided instead to adapt the currently available state-of-the-art models for neural population dynamics (i.e. Neural Data Transformers and AutoLFADS[^autolfads]) and make incremental improvements within the NLB challenge’s timeframe. By enumerating a backlog[^backlog] of small, incremental improvements and implementing them sequentially, we ensured that potential submissions were available at each step of the way (as opposed to designing an optimal implementation and running out of time before all finalized components could be assembled).
 
-[^ndt]: https://doi.org/10.51628/001c.27358
 [^autolfads]: https://doi.org/10.1101/2021.01.13.426570
 [^backlog]: The backlog was ordered based on estimates of implementation time and the expected value of result improvement and was adjusted over time based on new information from experiments.
 
@@ -43,7 +46,7 @@ In addition, we heavily relied upon cloud environments for flexibility and minim
 
 ## Methods
 
-For our winning model submission, we trained 100+ neural data transformer models[^our_fork] (per dataset) through Bayesian hyperparameter optimization. A subset of the available model checkpoints were then ensembled using ensemble averaging.
+For our winning model submission, we trained 100+ Neural Data Transformer models[^our_fork] (per dataset) through Bayesian hyperparameter optimization. A subset of the available model checkpoints were then ensembled using ensemble averaging.
 
 Hyperparameter optimization was executed via Ray Tune[^ray_tune] with the scikit-optimize implementation of Bayesian optimization[^ray_tune_bayesian]. We trained these models on an AWS p3.8xlarge[^p3_instance] instance[^training_times]. From each trial, one model snapshot was saved for the epoch with the best masked loss, and another for the epoch with the best unmasked loss. Once all trials were complete, the validation co-bps[^co_bps] was measured for each checkpoint.
 
